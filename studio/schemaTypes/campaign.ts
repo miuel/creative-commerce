@@ -35,5 +35,12 @@ export const campaignType = defineType({
         hotspot: true,
       },
     }),
+    
+    defineField({
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [{type: 'imageSection'}],
+    }),
   ],
 })
