@@ -1,9 +1,11 @@
 import { loadCampaignBySlug } from "@/domains/campaign/repository/load-campaign-by-slug";
-import { urlFor } from "@/domains/infrastructure/sanity/image";
+import { Image } from "@/ui/components/image/Image";
 import { ImageSection } from "@/ui/components/ImageSection/ImageSection";
 
 export default async function Home() {
   const campaign = await loadCampaignBySlug("born-of-nature");
+  const heroImage = campaign.heroImage;
+  const dimensions = heroImage?.asset.metadata.dimensions;
 
   return (
     <main
@@ -17,17 +19,26 @@ export default async function Home() {
       <h1>{campaign.title}</h1>
       <p>{campaign.description}</p>
 
-      {campaign.heroImage && (
-        <img
-          src={urlFor(campaign.heroImage).width(600).url()}
+      {heroImage && dimensions && (
+        <Image
+          src={heroImage.asset.url}
+          width={dimensions.width}
+          height={dimensions.height}
           alt={campaign.title}
+          sizes="100vw"
+          preload
         />
       )}
 
-      {campaign.sections?.map((section) => (
+      {campaign.sections?.map((section) => section.image && (
         <ImageSection
           key={section._key}
-          image={section.image}
+          image={{
+            src: section.image.asset.url,
+            width: section.image.asset.metadata.dimensions.width,
+            height: section.image.asset.metadata.dimensions.height,
+            alt: section.caption ?? "",
+          }}
           caption={section.caption}
         />
       ))}

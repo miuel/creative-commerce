@@ -1,20 +1,19 @@
-import { urlFor } from '@/domains/infrastructure/sanity/image'
+import { Image } from '../image/Image'
 
 type ImageSectionProps = {
   image: {
-    asset: {
-      _ref: string
-      _type: 'reference'
-    }
+    src: string
+    width: number
+    height: number
+    alt: string
   }
-  caption?: string
+  caption?: string | null
 }
 
 export const ImageSection = ({ image, caption }: ImageSectionProps) => {
   return (
     <section>
-      <img src={urlFor(image).width(600).url()} alt={caption ?? ''} />
-
+      <Image {...image} alt={image.alt} sizes="100vw" />
       {caption && <p>{caption}</p>}
     </section>
   )
