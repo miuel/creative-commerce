@@ -1,4 +1,5 @@
 import { sanityClient } from '@/domains/infrastructure/sanity/client'
+import { IMAGE_FRAGMENT } from '@/domains/infrastructure/sanity/fragments/image-fragment'
 import { campaignSchema } from '../schema/campaign-schema'
 
 const CAMPAIGN_QUERY = `
@@ -8,27 +9,14 @@ const CAMPAIGN_QUERY = `
     slug,
     description,
     heroImage {
-      asset-> {
-        url,
-        metadata {
-          dimensions {
-            width,
-            height
-          }
-        }
-      }
+      ${IMAGE_FRAGMENT}
     },
     sections[] {
       _type,
       _key,
       caption,
       image {
-        asset-> {
-          url,
-          metadata {
-            dimensions { width, height }
-          }
-        }
+        ${IMAGE_FRAGMENT}
       }
     }
   }

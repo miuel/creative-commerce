@@ -15,9 +15,7 @@ const imageSchema = z.object({
 const imageSectionSchema = z.object({
   _type: z.literal("imageSection"),
   _key: z.string(),
-
   image: imageSchema,
-
   caption: z.string().nullish(),
 });
 

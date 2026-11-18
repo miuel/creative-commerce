@@ -1,9 +1,14 @@
 import { loadCampaignBySlug } from "@/domains/campaign/repository/load-campaign-by-slug";
+import { loadPageData } from "@/domains/campaign/repository/load-page-data";
 import { Image } from "@/ui/components/image/Image";
 import { ImageSection } from "@/ui/components/ImageSection/ImageSection";
 
 export default async function Home() {
   const campaign = await loadCampaignBySlug("born-of-nature");
+  const home = await loadPageData();
+  
+  console.log("home", home);  
+
   const heroImage = campaign.heroImage;
   const dimensions = heroImage?.asset.metadata.dimensions;
 
