@@ -1,14 +1,14 @@
-import { Image } from '../image/Image'
+import { Image } from "../image/Image";
 
 type ImageSectionProps = {
   image: {
-    src: string
-    width: number
-    height: number
-    alt: string
-  }
-  caption?: string | null
-}
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+  };
+  caption?: string | null;
+};
 
 export const ImageSection = ({ image, caption }: ImageSectionProps) => {
   return (
@@ -16,5 +16,5 @@ export const ImageSection = ({ image, caption }: ImageSectionProps) => {
       <Image {...image} alt={image.alt} sizes="100vw" />
       {caption && <p>{caption}</p>}
     </section>
-  )
-}
+  );
+};

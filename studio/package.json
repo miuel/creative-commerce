@@ -9,16 +9,19 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "dev": "sanity dev",
-    "start": "sanity start"
+    "start": "sanity start",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^6.19.0",
+    "@sanity/vision": "^6.23.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "sanity": "^6.19.0",
+    "sanity": "^6.23.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
