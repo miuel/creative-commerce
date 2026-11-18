@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const campaignType = defineType({
   name: 'campaign',
@@ -10,6 +10,7 @@ export const campaignType = defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
 
     defineField({
@@ -35,12 +36,12 @@ export const campaignType = defineType({
         hotspot: true,
       },
     }),
-    
+
     defineField({
       name: 'sections',
       title: 'Sections',
       type: 'array',
-      of: [{type: 'imageSection'}],
+      of: [{ type: 'imageSection' }],
     }),
   ],
 })
