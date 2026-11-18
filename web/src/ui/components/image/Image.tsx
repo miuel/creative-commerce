@@ -1,14 +1,14 @@
-import NextImage from 'next/image'
-import styles from './Image.module.scss'
+import NextImage from "next/image";
+import styles from "./Image.module.scss";
 
 type ImageProps = {
-  src: string
-  alt: string
-  width: number
-  height: number
-  sizes?: string
-  preload?: boolean
-}
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes?: string;
+  preload?: boolean;
+};
 
 export const Image = ({
   src,
@@ -28,5 +28,5 @@ export const Image = ({
       sizes={sizes}
       preload={preload}
     />
-  )
-}
+  );
+};

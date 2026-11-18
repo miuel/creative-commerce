@@ -6,8 +6,8 @@ import { ImageSection } from "@/ui/components/ImageSection/ImageSection";
 export default async function Home() {
   const campaign = await loadCampaignBySlug("born-of-nature");
   const home = await loadPageData();
-  
-  console.log("home", home);  
+
+  console.log("home", home);
 
   const heroImage = campaign.heroImage;
   const dimensions = heroImage?.asset.metadata.dimensions;
@@ -35,18 +35,21 @@ export default async function Home() {
         />
       )}
 
-      {campaign.sections?.map((section) => section.image && (
-        <ImageSection
-          key={section._key}
-          image={{
-            src: section.image.asset.url,
-            width: section.image.asset.metadata.dimensions.width,
-            height: section.image.asset.metadata.dimensions.height,
-            alt: section.caption ?? "",
-          }}
-          caption={section.caption}
-        />
-      ))}
+      {campaign.sections?.map(
+        (section) =>
+          section.image && (
+            <ImageSection
+              key={section._key}
+              image={{
+                src: section.image.asset.url,
+                width: section.image.asset.metadata.dimensions.width,
+                height: section.image.asset.metadata.dimensions.height,
+                alt: section.caption ?? "",
+              }}
+              caption={section.caption}
+            />
+          ),
+      )}
     </main>
   );
 }

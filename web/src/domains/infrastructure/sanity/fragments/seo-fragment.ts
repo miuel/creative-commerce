@@ -4,4 +4,4 @@ export const SEO_FRAGMENT = `
     keywords,
     ogImage,
     noIndex
-`
+`;

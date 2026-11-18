@@ -1,4 +1,4 @@
-import { IMAGE_FRAGMENT } from './image-fragment'
+import { IMAGE_FRAGMENT } from "./image-fragment";
 
 export const HERO_FRAGMENT = `
     title,
@@ -8,4 +8,4 @@ export const HERO_FRAGMENT = `
         ${IMAGE_FRAGMENT}
     },
     showHero
-`
+`;

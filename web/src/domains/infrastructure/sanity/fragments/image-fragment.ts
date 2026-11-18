@@ -5,4 +5,4 @@ export const IMAGE_FRAGMENT = `
             dimensions { width, height }
         }
     }
-`
+`;

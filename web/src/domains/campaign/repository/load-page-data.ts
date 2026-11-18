@@ -1,6 +1,6 @@
-import { sanityClient } from '@/domains/infrastructure/sanity/client'
-import { HERO_FRAGMENT } from '@/domains/infrastructure/sanity/fragments/hero-fragment'
-import { SEO_FRAGMENT } from '@/domains/infrastructure/sanity/fragments/seo-fragment'
+import { sanityClient } from "@/domains/infrastructure/sanity/client";
+import { HERO_FRAGMENT } from "@/domains/infrastructure/sanity/fragments/hero-fragment";
+import { SEO_FRAGMENT } from "@/domains/infrastructure/sanity/fragments/seo-fragment";
 
 const HOME_PAGE_QUERY = `
     *[_type == "home"][0]{
@@ -16,10 +16,10 @@ const HOME_PAGE_QUERY = `
             ${HERO_FRAGMENT}
         }
     }
-`
+`;
 
 export const loadPageData = async () => {
-    const data = await sanityClient.fetch(HOME_PAGE_QUERY)    
+  const data = await sanityClient.fetch(HOME_PAGE_QUERY);
 
-    return data
-}
+  return data;
+};
