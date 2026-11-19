@@ -15,4 +15,11 @@ export const imageSchema = z
       .nullish(),
   })
   .nullish()
-  .transform((image) => (image?.asset ? { asset: image.asset } : null));
+  .transform((image) =>
+    image?.asset
+      ? {
+          src: image.asset.url,
+          ...image.asset.metadata.dimensions,
+        }
+      : null,
+  );

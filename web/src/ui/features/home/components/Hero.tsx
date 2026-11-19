@@ -11,18 +11,18 @@ export function Hero({ hero, preload }: HeroProps) {
     return null;
   }
 
-  const asset = hero.image?.asset;
-  const button = hero.button;
+  const { image, button } = hero;
 
   return (
     <section>
       {hero.title && <h2>{hero.title}</h2>}
       {hero.description && <p>{hero.description}</p>}
-      {asset && (
+      {image && (
         <Image
-          src={asset.url}
-          {...asset.metadata.dimensions}
-          alt={hero.title ?? ""}
+          src={image.src}
+          width={image.width}
+          height={image.height}
+          alt=""
           sizes="100vw"
           preload={preload}
         />

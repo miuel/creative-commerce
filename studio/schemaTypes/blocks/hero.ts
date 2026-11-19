@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const heroType = defineType({
   name: 'hero',
@@ -14,13 +14,13 @@ export const heroType = defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text'
+      type: 'text',
     }),
 
     defineField({
       name: 'button',
       title: 'Button',
-      type: 'button'
+      type: 'button',
     }),
 
     defineField({
